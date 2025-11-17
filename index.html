@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandon Lazala – Portfolio</title>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .project-img {
+            width: 250px;
+            height: 150px;
+            object-fit: cover;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        #welcome {
+            padding: 15px;
+            background: #e0e0e0;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Welcome message -->
+    <div id="welcome">Welcome to my portfolio!</div>
+
+    <header>
+        <h1>Brandon Lazala – Portfolio</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is Brandon Lazala, and I am a Software Developer student 
+                working on developing skills in programming and web development.
+                I enjoy learning new technologies and coding projects that help me 
+                grow as a developer.
+            </p>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            <p>Here are a few of my previous GitHub projects:</p>
+
+            <a href="https://github.com/placeholder1" target="_blank">
+                <img src="https://via.placeholder.com/250x150" class="project-img" alt="Project 1">
+            </a>
+
+            <a href="https://github.com/placeholder2" target="_blank">
+                <img src="https://via.placeholder.com/250x150" class="project-img" alt="Project 2">
+            </a>
+
+            <a href="https://github.com/placeholder3" target="_blank">
+                <img src="https://via.placeholder.com/250x150" class="project-img" alt="Project 3">
+            </a>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+
+            <form>
+                <label for="senderName">Your Name:</label>
+                <input type="text" id="senderName" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject">
+
+                <label for="message">Message:</label>
+                <textarea id="message" rows="5" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- JavaScript for personalized interaction -->
+    <script>
+        let userName = prompt("Welcome! What is your name?");
+        if (userName && userName.trim() !== "") {
+            document.getElementById("welcome").textContent = 
+                "Welcome to my portfolio, " + userName + "!";
+        } else {
+            document.getElementById("welcome").textContent =
+                "Welcome to my portfolio!";
+        }
+    </script>
+
+</body>
+</html>
