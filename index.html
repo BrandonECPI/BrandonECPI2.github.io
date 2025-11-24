@@ -5,8 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brandon Lazala's Portfolio</title>
 <link rel="stylesheet" href="index.css">
+</head>
 
 <body>
+
+    <!-- DARK MODE TOGGLE -->
+    <label>
+        <input type="checkbox" id="darkModeSwitch">
+        Dark Mode
+    </label>
 
     <!-- Welcome message -->
     <div id="welcome">Welcome to my portfolio!</div>
@@ -33,31 +40,52 @@
                 I enjoy learning new technologies and coding projects that help me 
                 grow as a developer.
             </p>
+
+            <!-- SKILLS LIST -->
+            <h3>My Skills</h3>
+            <ul id="skillsList"></ul>
         </section>
 
         <!-- PROJECTS SECTION -->
         <section id="projects">
-    <h2>My Projects</h2>
-    <p>Here are a few of my previous GitHub projects (placeholders):</p>
+            <h2>My Projects</h2>
+            <p>Here are a few of my previous GitHub projects (placeholders):</p>
 
-    <a href="#">
-        <img src="#" class="project-img" alt="Project 1">
-    </a>
+            <a href="#">
+                <img src="#" class="project-img" alt="Project 1">
+            </a>
 
-    <a href="#">
-        <img src="#" class="project-img" alt="Project 2">
-    </a>
+            <a href="#">
+                <img src="#" class="project-img" alt="Project 2">
+            </a>
 
-    <a href="#">
-        <img src="#" class="project-img" alt="Project 3">
-    </a>
-</section>
+            <a href="#">
+                <img src="#" class="project-img" alt="Project 3">
+            </a>
+        </section>
+
+        <!-- FEATURED CONTENT SECTION -->
+        <section id="featured">
+            <h2>Featured Content</h2>
+
+            <div id="universityResources">
+                <h3>University Resources</h3>
+                <a href="https://www.ecpi.edu" target="_blank">ECPI Homepage</a><br>
+                <a href="https://ecpi.edu/online" target="_blank">ECPI Online Programs</a>
+            </div>
+
+            <div id="personalProjects">
+                <h3>Personal Projects</h3>
+                <a href="#"><img src="#" alt="Personal Project 1"></a>
+                <a href="#"><img src="#" alt="Personal Project 2"></a>
+            </div>
+        </section>
 
         <!-- CONTACT SECTION -->
         <section id="contact">
             <h2>Contact Me</h2>
 
-            <form>
+            <form id="contactForm">
                 <label for="senderName">Your Name:</label>
                 <input type="text" id="senderName" required>
 
@@ -70,14 +98,15 @@
                 <label for="message">Message:</label>
                 <textarea id="message" rows="5" required></textarea>
 
-                <button type="submit">Submit</button>
+                <button type="submit" id="submitBtn">Submit</button>
             </form>
         </section>
 
     </main>
 
-    <!-- Personalized interaction -->
+    <!-- JavaScript -->
     <script>
+        /* Personalized welcome message */
         let userName = prompt("Welcome! What is your name?");
         if (userName && userName.trim() !== "") {
             document.getElementById("welcome").textContent = 
@@ -86,6 +115,50 @@
             document.getElementById("welcome").textContent =
                 "Welcome to my portfolio!";
         }
+
+        /* NEW: Skills Loop */
+        const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub"];
+        const skillsList = document.getElementById("skillsList");
+
+        skills.forEach(skill => {
+            const li = document.createElement("li");
+            li.textContent = skill;
+            skillsList.appendChild(li);
+        });
+
+        /* NEW: Show/Hide Featured Content Based on # of Projects */
+    
+        const projectCount = document.querySelectorAll("#projects img").length;
+
+        const uniDiv = document.getElementById("universityResources");
+        const personalDiv = document.getElementById("personalProjects");
+
+        if (projectCount < 3) {
+            uniDiv.style.display = "block";
+            personalDiv.style.display = "block";
+        } else {
+            uniDiv.style.display = "none";
+            personalDiv.style.display = "block";
+        }
+
+        /* NEW: Dark Mode Toggle*/
+        const darkSwitch = document.getElementById("darkModeSwitch");
+
+        darkSwitch.addEventListener("change", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+
+        /* NEW: Contact Form Submit Interactivity*/
+        const form = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+
+        submitBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // stops refresh
+
+            const nameValue = document.getElementById("senderName").value;
+
+            alert(`Thank you, ${nameValue}! Your message has been sent.`);
+        });
     </script>
 
 </body>
