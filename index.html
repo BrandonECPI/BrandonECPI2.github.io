@@ -116,7 +116,7 @@
                 "Welcome to my portfolio!";
         }
 
-        /* NEW: Skills Loop */
+        /* Skills Loop */
         const skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub"];
         const skillsList = document.getElementById("skillsList");
 
@@ -126,7 +126,7 @@
             skillsList.appendChild(li);
         });
 
-        /* NEW: Show/Hide Featured Content Based on # of Projects */
+        /* Show/Hide Featured Content Based on # of Projects */
     
         const projectCount = document.querySelectorAll("#projects img").length;
 
@@ -141,14 +141,14 @@
             personalDiv.style.display = "block";
         }
 
-        /* NEW: Dark Mode Toggle*/
+        /* Dark Mode Toggle*/
         const darkSwitch = document.getElementById("darkModeSwitch");
 
         darkSwitch.addEventListener("change", () => {
             document.body.classList.toggle("dark-mode");
         });
 
-        /* NEW: Contact Form Submit Interactivity*/
+        /* Contact Form Submit Interactivity*/
         const form = document.getElementById("contactForm");
         const submitBtn = document.getElementById("submitBtn");
 
@@ -161,7 +161,7 @@
         });
 
         
-/* WEEK 3 UPDATES – CLEAN VERSION */
+/* WEEK 3 UPDATES */
 
 
 /* New Paragraph in the About Section */
