@@ -159,6 +159,68 @@
 
             alert(`Thank you, ${nameValue}! Your message has been sent.`);
         });
+
+        
+/* WEEK 3 UPDATES – CLEAN VERSION */
+
+
+/* New Paragraph in the About Section */
+const aboutSection = document.querySelector("#about");
+
+const newParagraph = document.createElement("p");
+newParagraph.textContent = "Recently added: I am working on improving my portfolio with additional JavaScript functionality.";
+newParagraph.style.fontWeight = "bold";
+
+aboutSection.appendChild(newParagraph);
+
+
+/* Add a Notification at the Top of the Page After a Delay */
+setTimeout(() => {
+    const notice = document.createElement("div");
+    notice.textContent = "New content has been added to this page.";
+    notice.style.background = "#f2f2f2";
+    notice.style.padding = "10px";
+    notice.style.border = "1px solid #999";
+    notice.style.marginBottom = "10px";
+
+    document.body.prepend(notice);
+}, 2000);
+
+
+/* Modify Existing Elements Using Selection */
+
+// Change the color of the Projects section heading
+const projectHeading = document.querySelector("#projects h2");
+projectHeading.style.color = "navy";
+
+// Add a border to the About section
+aboutSection.style.border = "2px solid lightgray";
+aboutSection.style.padding = "10px";
+
+
+/* Timed Confirmation for Contact Form Submission */
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Remove any old status messages
+    const oldMsg = document.getElementById("statusMsg");
+    if (oldMsg) oldMsg.remove();
+
+    // Display a loading message
+    const loadingMsg = document.createElement("p");
+    loadingMsg.id = "statusMsg";
+    loadingMsg.textContent = "Sending message...";
+    loadingMsg.style.color = "orange";
+
+    form.appendChild(loadingMsg);
+
+    // Replace with confirmation after 2.5 seconds
+    setTimeout(() => {
+        loadingMsg.textContent = "Message sent successfully.";
+        loadingMsg.style.color = "green";
+    }, 2500);
+});
+
     </script>
 
 </body>
